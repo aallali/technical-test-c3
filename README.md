@@ -28,11 +28,11 @@ plan.
 
 ### Technologies:
 For this project, we will use:
-● Django [link](https://docs.djangoproject.com/en/5.0/)
-● Django Rest Framework (DRF) [link](https://www.django-rest-framework.org/topics/documenting-your-api/)
-● PostgreSQL
-● JWT authentication
-● Subscription management tools are free to choose.
+- Django [link](https://docs.djangoproject.com/en/5.0/)
+- Django Rest Framework (DRF) [link](https://www.django-rest-framework.org/topics/documenting-your-api/)
+- PostgreSQL
+- JWT authentication
+- Subscription management tools are free to choose.
 
 ### Designs:
 The user interface for interacting with API is optional.
@@ -40,4 +40,4 @@ The user interface for interacting with API is optional.
 ---
 
 ### TODO:
-- [ ] setup dockerized env running _Django Rest Framework + PostgreSQL
+- [ ] setup dockerized env running _Django Rest Framework + PostgreSQL_
