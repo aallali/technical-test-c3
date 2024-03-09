@@ -14,17 +14,14 @@ for instance, will have full control over the gallery. They can upload new image
 The objective of this project is to create a multi-user application with role-based access control using a RESTful API architecture.
 
 ### Instruction:
-- [ ] Build a RESTful API to handle CRUD operations (Create, Read,
-- [ ] Update, Delete) for users, roles, images, and asset approval.
+- [ ] Build a RESTful API to handle CRUD operations (Create, Read, Update, Delete) for users, roles, images, and asset approval.
 - [ ] Use standard HTTP methods (GET, POST, PUT, DELETE) for each operation.
 - [ ] Ensure proper validation and error handling at the API endpoints.
 - [ ] Use a relational database PostgreSQL.
 - [ ] Implement user signup, login, and token generation using JWT.
 - [ ] Implement user authentication using JWT (JSON Web Tokens).
-- [ ] Create a system to manage subscription plans for growth plan
-subscribers.
-- [ ] Define the features and benefits associated with each subscription
-plan.
+- [ ] Create a system to manage subscription plans for growth plan subscribers.
+- [ ] Define the features and benefits associated with each subscription plan.
 
 ### Technologies:
 For this project, we will use:
@@ -41,3 +38,14 @@ The user interface for interacting with API is optional.
 
 ### TODO:
 - [ ] setup dockerized env running _Django Rest Framework + PostgreSQL_
+
+
+### Guide:
+- run the docker container:
+    - `docker-compose up` : build containers first time.
+    - `docker-compose up --no-deps --build web` re-build the web service.
+
+- init django app:
+    - `django-admin startproject app .` : init project called `app` in current directory,
+    - `django-admin startapp users`: add app called `users`.
+    - `python manage.py runserver 0.0.0.0:8000`: run the web service.
