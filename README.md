@@ -37,7 +37,9 @@ The user interface for interacting with API is optional.
 ---
 
 ### TODO:
-- [ ] setup dockerized env running _Django Rest Framework + PostgreSQL_
+- [x] setup dockerized env running _Django Rest Framework + PostgreSQL_
+- [x] install djangorestframework_simplejwt + config
+- [x] run basic login/register
 
 
 ### Guide:
@@ -49,3 +51,6 @@ The user interface for interacting with API is optional.
     - `django-admin startproject server .` : init project called `server` in current directory,
     - `django-admin startapp users`: add app called `users`.
     - `python manage.py runserver 0.0.0.0:8000`: run the web service.
+- migrate DB:
+    - `python manage.py makemigrations && python manage.py migrate`
+    
