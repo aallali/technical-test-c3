@@ -46,6 +46,6 @@ The user interface for interacting with API is optional.
     - `docker-compose up --no-deps --build web` re-build the web service.
 
 - init django app:
-    - `django-admin startproject app .` : init project called `app` in current directory,
+    - `django-admin startproject server .` : init project called `server` in current directory,
     - `django-admin startapp users`: add app called `users`.
     - `python manage.py runserver 0.0.0.0:8000`: run the web service.
