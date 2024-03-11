@@ -36,10 +36,39 @@ The user interface for interacting with API is optional.
  
 ---
 
+### Plan:
+- users types/roles:
+    1. company users
+    1. beta players
+    1. subscribers
+- Tables Schema
+    1. users
+        - `id`: _int auto increment (unique)_
+        - `username`: _string (unique)_
+        - `password`: _string_
+    1. images:
+        - `description` : _string_
+        - `image`: _string (path to img in sever)_
+        - `uploaded_by` : _foreignKey(users.id)_
+        - `uploaded_at` : _date_
+
 ### TODO:
 - [x] setup dockerized env running _Django Rest Framework + PostgreSQL_
 - [x] install djangorestframework_simplejwt + config
 - [x] run basic login/register
+- [ ] add protected route
+- [ ] add roles fields to model
+- [x] init `imgService` app
+- [ ] CURD images
+    - [x] UPLOAD image protected for auth users
+        - [x] save image + meta data in DB
+        - [ ] allow `beta players` only to upload imgs
+    - [x] VIEW ONE images (by all)
+    - [x] VIEW ALL image (by all)
+    - [ ] UPDATE image description (by `beta players`)
+    - [ ] DELETE image (by `beta players`)
+
+- [ ] move secrets to env at the end
 
 
 ### Guide:
@@ -50,6 +79,8 @@ The user interface for interacting with API is optional.
 - init django app:
     - `django-admin startproject server .` : init project called `server` in current directory,
     - `django-admin startapp users`: add app called `users`.
+    - `django-admin startapp imgService`: add app called `imgService`.
+
     - `python manage.py runserver 0.0.0.0:8000`: run the web service.
 - migrate DB:
     - `python manage.py makemigrations && python manage.py migrate`
