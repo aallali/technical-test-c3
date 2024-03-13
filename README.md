@@ -14,12 +14,12 @@ for instance, will have full control over the gallery. They can upload new image
 The objective of this project is to create a multi-user application with role-based access control using a RESTful API architecture.
 
 ### Instruction:
-- [ ] Build a RESTful API to handle CRUD operations (Create, Read, Update, Delete) for users, roles, images, and asset approval.
-- [ ] Use standard HTTP methods (GET, POST, PUT, DELETE) for each operation.
+- [x] Build a RESTful API to handle CRUD operations (Create, Read, Update, Delete) for users, roles, images, and asset approval.
+- [x] Use standard HTTP methods (GET, POST, PUT, DELETE) for each operation.
 - [ ] Ensure proper validation and error handling at the API endpoints.
-- [ ] Use a relational database PostgreSQL.
-- [ ] Implement user signup, login, and token generation using JWT.
-- [ ] Implement user authentication using JWT (JSON Web Tokens).
+- [x] Use a relational database PostgreSQL.
+- [x] Implement user signup, login, and token generation using JWT.
+- [x] Implement user authentication using JWT (JSON Web Tokens).
 - [ ] Create a system to manage subscription plans for growth plan subscribers.
 - [ ] Define the features and benefits associated with each subscription plan.
 
@@ -56,22 +56,31 @@ The user interface for interacting with API is optional.
 - [x] setup dockerized env running _Django Rest Framework + PostgreSQL_
 - [x] install djangorestframework_simplejwt + config
 - [x] run basic login/register
-- [ ] add protected route
-- [ ] add roles fields to model
+- [x] add protected route
+- [x] add roles fields to model
 - [x] init `imgService` app
-- [ ] CURD images
+- [x] CURD images
     - [x] UPLOAD image protected for auth users
         - [x] save image + meta data in DB
-        - [ ] allow `beta players` only to upload imgs
+        - [x] allow `beta players` only to upload imgs
     - [x] VIEW ONE images (by all)
     - [x] VIEW ALL image (by all)
-    - [ ] UPDATE image description (by `beta players`)
-    - [ ] DELETE image (by `beta players`)
-
+    - [x] UPDATE image description (by `beta players`)
+    - [x] DELETE image (by `beta players`)
+- [x] setup postman testing collection for the workflow
+    - [x] setup postman built script to auto load auth tokens
+    - [x] create req for each service
+    - [x] test all reqs for `betaPlayer` vs `others`
+- [ ] handle subscription plans
+- [ ] review code & remove redundent code
+    - [ ] refact users app
+    - [ ] refact img service
+    - [ ] refact path formats
+- [ ] document APIs
 - [ ] move secrets to env at the end
 
 
-### Guide:
+### Cheat sheets:
 - run the docker container:
     - `docker-compose up` : build containers first time.
     - `docker-compose up --no-deps --build web` re-build the web service.
@@ -85,3 +94,5 @@ The user interface for interacting with API is optional.
 - migrate DB:
     - `python manage.py makemigrations && python manage.py migrate`
     
+- create super user:
+    - `python manage.py createsuperuser`
