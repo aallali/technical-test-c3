@@ -16,9 +16,6 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(
             username=validated_data["username"],
             password=validated_data["password"],
-            # is_beta_player=False,
-            # is_company_user=False,
-            # is_growth_user=False,
         )
         return user
 
@@ -41,7 +38,6 @@ class UserLoginSerializer(serializers.Serializer):
 
     def get_tokens(self, obj):
         user = authenticate(username=obj["username"], password=obj["password"])
-        print(user)
         if user:
             refresh = RefreshToken.for_user(user)
             return {
