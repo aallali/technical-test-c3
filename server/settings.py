@@ -13,18 +13,24 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
+import environ
+
+env = environ.Env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-lhonj26-1xp%3(=7m&8i0gpk0nd50is)u(yud1i8q-mc-v()tm'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = ["0.0.0.0"]
 
@@ -83,12 +89,18 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ACCESS_TOKEN_LIFETIME": timedelta(
+        days=int(env("JWT_ACCESS_TOKEN_LIFETIME"))
+    ),
+    "REFRESH_TOKEN_LIFETIME": timedelta(
+        days=int(env("REFRESH_TOKEN_LIFETIME"))
+    ),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,
     "UPDATE_LAST_LOGIN": False,
     "AUTH_HEADER_TYPES": ("Bearer",),
+
+    "SIGNING_KEY": env("JWT_SECRET")
 }
 
 # Database
@@ -101,11 +113,11 @@ DATABASES = {
     # },
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "mydatabase",
-        "USER": "mydatabaseuser",
-        "PASSWORD": "mypassword",
-        "HOST": "0.0.0.0",
-        "PORT": "5432",
+        "NAME": env("DB_NAME"),
+        "USER": env("DB_USER"),
+        "PASSWORD": env("DB_PASS"),
+        "HOST": env("DB_HOST"),
+        "PORT": env("DB_PORT"),
     }
 }
 
