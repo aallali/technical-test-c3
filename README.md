@@ -88,6 +88,14 @@ The user interface for interacting with API is optional.
 ### Note:
 - i used admin panel to set roles for users (can be more dynamic. It was the easy way x) )
 
+### Installation:
+
+```
+git clone https://github.com/aallali/technical-test-c3/
+cd technical-test-c3/
+docker-compose up
+```
+- service up and running at `0.0.0.0:8000`
 ### API enpoints:
 - #### register
     <details>
