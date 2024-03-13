@@ -36,7 +36,7 @@ The user interface for interacting with API is optional.
  
 ---
 
-### Plan:
+### Overview:
 - users types/roles:
     1. company users
     1. beta players
@@ -46,6 +46,10 @@ The user interface for interacting with API is optional.
         - `id`: _int auto increment (unique)_
         - `username`: _string (unique)_
         - `password`: _string_
+        - `is_beta_player`: boolean (false)
+        - `is_company_user`: boolean (false)
+        - `is_growth_user`: boolean (false)
+
     1. images:
         - `description` : _string_
         - `image`: _string (path to img in sever)_
@@ -67,18 +71,21 @@ The user interface for interacting with API is optional.
     - [x] VIEW ALL image (by all)
     - [x] UPDATE image description (by `beta players`)
     - [x] DELETE image (by `beta players`)
+- [ ] ~~input validation~~
 - [x] setup postman testing collection for the workflow
     - [x] setup postman built script to auto load auth tokens
     - [x] create req for each service
     - [x] test all reqs for `betaPlayer` vs `others`
-- [ ] handle subscription plans
-- [ ] review code & remove redundent code
-    - [ ] refact users app
-    - [ ] refact img service
-    - [ ] refact path formats
+- [ ] ~~handle subscription plans~~
+- [x] review code & remove redundent code
+    - [x] refact users app
+    - [x] refact img service
+    - [x] refact path formats
 - [ ] document APIs
 - [ ] move secrets to env at the end
 
+### Note:
+i used admin panel to set roles for users, Is it the best way to do it ? I don't know tbh, that was the easy way for me :)
 
 ### Cheat sheets:
 - run the docker container:
