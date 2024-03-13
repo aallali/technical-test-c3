@@ -155,3 +155,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+"""
+You're specifying that the User model defined in the users app should be used for authentication and user-related operations throughout your Django project.
+
+This ensures that Django's authentication system, including permissions, groups, and user-related functionalities, will all be based on your custom user model, resolving the conflicts you encountered with the default auth.User model.
+"""
+AUTH_USER_MODEL = 'users.User'
