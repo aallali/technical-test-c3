@@ -3,7 +3,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from imgService.permissions import IsBetaPlayerPermission
 from .models import Image
-from .serializers import ImageDescriptionUpdateSerializer, ImageSerializer
+from .serializers import ImageSerializer
 
 
 class ImageViewSet(generics.ListCreateAPIView):
@@ -30,7 +30,7 @@ class ImageViewSet(generics.ListCreateAPIView):
 
 class ImageDescriptionUpdateAPIView(generics.UpdateAPIView):
     queryset = Image.objects.all()
-    serializer_class = ImageDescriptionUpdateSerializer
+    serializer_class = ImageSerializer
     permission_classes = [IsBetaPlayerPermission]
 
     def update(self, request, *args, **kwargs):
