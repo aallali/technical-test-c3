@@ -34,9 +34,14 @@ class ImageDescriptionUpdateAPIView(generics.UpdateAPIView):
     permission_classes = [IsBetaPlayerPermission]
 
     def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
         instance = self.get_object()
-        serializer = self.get_serializer(instance, data=request.data)
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
+        # Ensure that description field is provided
+        if 'description' not in serializer.validated_data:
+            return Response({"error": "Description is required"}, status=status.HTTP_400_BAD_REQUEST)
+
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
 
