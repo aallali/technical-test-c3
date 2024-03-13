@@ -6,14 +6,14 @@ from .views import (
 )
 
 urlpatterns = [
-    path("/", ImageViewSet.as_view(), name="image-list"),
+    path("", ImageViewSet.as_view(), name="image-list"),
     path(
-        "/<int:pk>/description",
+        "<int:pk>/description",
         ImageDescriptionUpdateAPIView.as_view(),
         name="image-description-update",
     ),
     path(
-        "/<int:pk>/",
+        "<int:pk>/",
         ImageSingleHandler.as_view(),
         name="image-detail",
     ),
